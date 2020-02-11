@@ -30,6 +30,7 @@ dependencies {
 	}
 
 }
+extra["slf4j.version"] = "1.7.20"
 
 tasks.withType<Test> {
 	useJUnitPlatform()
@@ -55,3 +56,7 @@ tasks.register("cucumber") {
 		}
 	}
 }
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	launchScript()
+}
+
