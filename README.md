@@ -33,24 +33,24 @@ or
 ```
 >.\gradlew.bat cucumber
 ```
-##Starting the Application
+## Starting the Application
 Use one the following commands to start the application listening on your requests at port 8080.
 ```
 $./gradlew bootRun 
 ```
 or
-```
+``` 
 >.\gradlew.bat bootRun
 ```
 And open the link in browser to see the randomly generated user data.
 http://localhost:8080/randomuser
 
-##Swagger API
+## Swagger API
 Open this link in browser to read the API 
 ```
 http://localhost:8080/swagger-ui.html
 ```
-##Docker
+## Docker
 The docker file has been provided to build the image and wrap the Spring Boot app.
 The structure of dockerfile is helpful when working with special Spring Boot layered jars.
 To use docker, run one of the following commands:
@@ -69,7 +69,7 @@ $ mkdir build/dependency
 $ (cd build/dependency; jar -xf ../libs/*.jar)
 $ docker build -t myorg/myapp .
 ```
-##Guides:
+## Guides:
 * [Spring Boot RESTful API Documentation with Swagger 2](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)
 * [Testing Spring MVC Controllers](https://dzone.com/articles/unit-and-integration-tests-in-spring-boot)
 * [Consuming a RESTful Web Service](https://spring.io/guides/gs/consuming-rest/)
