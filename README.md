@@ -44,9 +44,8 @@ or
 ```
 And open the link in browser to see the randomly generated user data.
 http://localhost:8080/randomuser
-```
+
 ##Swagger API
-```
 Open this link in browser to read the API 
 ```
 http://localhost:8080/swagger-ui.html
