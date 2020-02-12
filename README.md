@@ -3,6 +3,7 @@ Spring Boot REST consumer application written in Kotlin.
 The app is potential microservice built using Spring Boot (v.2.2.4).
 The app is consuming the [Random User](https://randomuser.me/) REST web service,
 and it is providing the data that could be useful for on-boarding process testing.
+I aim on Docker and Integration testing part of the exercise.
 
 ## Software Stack
 * Java JDK 8+/Kotlin as main execution environment
@@ -51,8 +52,10 @@ Open this link in browser to read the API
 http://localhost:8080/swagger-ui.html
 ```
 ## Docker
+The following approach is recommended if you're using Spring Boot v. 2.2.4
 The docker file has been provided to build the image and wrap the Spring Boot app.
 The structure of dockerfile is helpful when working with special Spring Boot layered jars.
+This section hasn't been tested on Windows.
 To use docker, run one of the following commands:
 ```
 $./gradlew bootJar
@@ -65,9 +68,13 @@ The command generates the JAR to
 build/libs/randomuser-demo-${version}.jar
 To unpack the jar, use the commands:
 ```
-$ mkdir build/dependency
-$ (cd build/dependency; jar -xf ../libs/*.jar)
-$ docker build -t myorg/myapp .
+$cd build/libs/ && unzip *.jar 
+$cd ../..
+```
+To build the Docker image and run it, use the commands:
+```
+$docker build -t com.minskrotterdam/randomuser . 
+$docker run -p 8080:8080 com.minskrotterdam/randomuser --server.port=8080
 ```
 ## Guides:
 * [Spring Boot RESTful API Documentation with Swagger 2](https://springframework.guru/spring-boot-restful-api-documentation-with-swagger-2/)
