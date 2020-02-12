@@ -52,26 +52,25 @@ Open this link in browser to read the API
 http://localhost:8080/swagger-ui.html
 ```
 ## Docker
-The following approach is recommended if you're using Spring Boot v. 2.2.4
+Docker part is not supported on Windows.
+The following approach is recommended if you're using Spring Boot v. 2.2.4:
+* Build Spring boot application jar;
+* Unzip the jar. This is beneficial
+   if the application dependencies don’t change, so the build will be faster, and so will the startup of the container at runtime,
+    as long as the base layers are already cached;
+* Build docker image;
+* Run docker image.
 The docker file has been provided to build the image and wrap the Spring Boot app.
-The structure of dockerfile is helpful when working with special Spring Boot layered jars.
-This section hasn't been tested on Windows.
-To use docker, run one of the following commands:
+To build the boot jar, use the following command:
 ```
 $./gradlew bootJar
 ```
-or
-```
->.\gradlew.bat bootJar
-```
-The command generates the JAR to 
-build/libs/randomuser-demo-${version}.jar
-To unpack the jar, use the commands:
+To unpack the jar, use the following command:
 ```
 $cd build/libs/ && unzip *.jar 
 $cd ../..
 ```
-To build the Docker image and run it, use the commands:
+To build the Docker image and run it, use the following commands:
 ```
 $docker build -t com.minskrotterdam/randomuser . 
 $docker run -p 8080:8080 com.minskrotterdam/randomuser --server.port=8080
