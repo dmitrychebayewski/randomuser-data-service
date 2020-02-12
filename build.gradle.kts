@@ -30,6 +30,7 @@ dependencies {
 	}
 
 }
+extra["slf4j.version"] = "1.7.20"
 
 tasks.withType<Test> {
 	useJUnitPlatform()
@@ -51,7 +52,11 @@ tasks.register("cucumber") {
 		javaexec {
 			main = "io.cucumber.core.cli.Main"
 			classpath = configurations.getByName("cucumberRuntime") + sourceSets.named("main").get().output + sourceSets.named("test").get().output
-			args = listOf("--plugin", "pretty", "--glue", "com.minskrotterdam.randomuser", "src/test/resources")
+			args = listOf("--plugin", "progress",  "--plugin", "junit:build/cucumber-junit-report/junit.xml", "--plugin", "html:build/cucumber-html-report", "--glue", "com.minskrotterdam.randomuser", "src/test/resources")
 		}
 	}
 }
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	launchScript()
+}
+
