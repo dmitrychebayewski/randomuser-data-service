@@ -51,8 +51,8 @@ Open this link in browser to read the API
 ```
 http://localhost:8080/swagger-ui.html
 ```
-## Docker
-Docker part is not supported on Windows.
+## Docker (optional)
+Docker part was not tested on Windows.
 The following approach is recommended if you're using Spring Boot v. 2.2.4:
 * Build Spring boot application jar;
 * Unzip the jar. This is beneficial
